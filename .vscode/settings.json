@@ -1,5 +1,0 @@
-{
-  "yaml.schemas": {
-    "kubernetes://schema/v1%40service": "file:///home/liam/Desktop/microservices/swaptix/infra/k8s/auth-depl.yaml"
-  }
-}
