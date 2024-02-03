@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-import { currentUser } from '../middlewares'
+import { currentUser } from '@swaptix/common'
 
 const router = Router()
 

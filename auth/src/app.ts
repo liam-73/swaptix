@@ -9,8 +9,7 @@ import {
   signOutRouter,
   signUpRouter,
 } from './routes'
-import { errorHandler } from './middlewares'
-import { NotFoundError } from './errors'
+import { errorHandler, NotFoundError } from '@swaptix/common'
 
 const app = express()
 

@@ -1,9 +1,8 @@
 import { Request, Response, Router } from 'express'
 import jwt from 'jsonwebtoken'
 import { body } from 'express-validator'
-import { validateRequest } from '../middlewares'
+import { validateRequest, BadRequestError } from '@swaptix/common'
 import { User } from '../models'
-import { BadRequestError } from '../errors'
 import { Password } from '../services'
 
 const router = Router()
