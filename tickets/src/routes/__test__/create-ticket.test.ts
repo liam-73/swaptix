@@ -1,5 +1,6 @@
 import request from 'supertest'
 import { app } from '../../app'
+import { Ticket } from '../../models'
 
 describe('POST create ticket', () => {
   it('has a post route handler for /api/tickets', async () => {
@@ -53,11 +54,16 @@ describe('POST create ticket', () => {
   })
 
   it('able to create a ticket', async () => {
-    // TODO: make sure to check that a ticket is saved
+    const ticketTitle = 'testing'
+
     await request(app)
       .post('/api/tickets')
       .set('Cookie', global.signin())
-      .send({ title: 'testing', price: 20 })
+      .send({ title: ticketTitle, price: 20 })
       .expect(201)
+
+    const createdTicket = await Ticket.findOne({ title: ticketTitle })
+    expect(createdTicket).not.toBeNull()
+    expect(createdTicket!.price).toEqual(20)
   })
 })
