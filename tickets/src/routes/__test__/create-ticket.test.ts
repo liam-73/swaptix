@@ -52,5 +52,12 @@ describe('POST create ticket', () => {
       .expect(400)
   })
 
-  it('able to create a ticket', async () => {})
+  it('able to create a ticket', async () => {
+    // TODO: make sure to check that a ticket is saved
+    await request(app)
+      .post('/api/tickets')
+      .set('Cookie', global.signin())
+      .send({ title: 'testing', price: 20 })
+      .expect(201)
+  })
 })
